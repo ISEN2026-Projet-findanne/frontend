@@ -4,6 +4,7 @@ import {
   LineChart, Line
 } from "recharts";
 import { Card, CardContent, CardHeader, CardTitle, Select } from "../components/ui";
+
 import { MOCK_HISTOGRAM_DATA, MOCK_CURVE_DATA } from "../mockData";
 
 export function AnalyticsView() {

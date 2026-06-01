@@ -14,10 +14,86 @@ export const MOCK_STUDENTS = [
   { id: "7", name: "Arthur Simon", group: "TD3", subject: "Web Dev", avg: 18.2, risk: "faible", status: "validé", promo: "2026" },
 ];
 
-export const MOCK_GROUPS = [
-  { id: "g1", name: "Groupe TD1", students: 25, subject: "Java", avg: 12.4, successRate: 85 },
-  { id: "g2", name: "Groupe TD2", students: 24, subject: "C++", avg: 11.2, successRate: 70 },
-  { id: "g3", name: "Groupe TD3", students: 28, subject: "Web Dev", avg: 13.8, successRate: 92 },
+export const MOCK_SUBJECTS = [
+  {
+    id: "java",
+    name: "Java",
+    levels: [
+      {
+        id: "l1",
+        name: "1ère année",
+        classes: [
+          {
+            id: "java-l1-td1",
+            name: "TD1",
+            students: 25,
+            avg: 12.4,
+            successRate: 85,
+          },
+          {
+            id: "java-l1-td2",
+            name: "TD2",
+            students: 28,
+            avg: 13.1,
+            successRate: 90,
+          },
+        ],
+      },
+      {
+        id: "l2",
+        name: "2ème année",
+        classes: [
+          {
+            id: "java-l2-td1",
+            name: "TD1",
+            students: 20,
+            avg: 11.7,
+            successRate: 75,
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "cpp",
+    name: "C++",
+    levels: [
+      {
+        id: "l1",
+        name: "1ère année",
+        classes: [
+          {
+            id: "cpp-l1-td1",
+            name: "TD1",
+            students: 22,
+            avg: 10.8,
+            successRate: 68,
+          },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: "webdev",
+    name: "Web Dev",
+    levels: [
+      {
+        id: "l1",
+        name: "1ère année",
+        classes: [
+          {
+            id: "web-l1-td1",
+            name: "TD1",
+            students: 30,
+            avg: 14.2,
+            successRate: 93,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const MOCK_ALERTS = [

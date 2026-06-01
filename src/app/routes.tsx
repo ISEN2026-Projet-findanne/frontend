@@ -11,6 +11,7 @@ import { AnalyticsView } from "./views/AnalyticsView";
 import { AlertsView } from "./views/AlertsView";
 import { ReportsView } from "./views/ReportsView";
 import { ProfileView } from "./views/ProfileView";
+import { LevelView } from "./views/LevelView";
 
 function RootErrorBoundary() {
   const error = useRouteError() as Error;
@@ -45,13 +46,19 @@ export const router = createBrowserRouter([
         Component: GroupsView,
       },
       {
-        path: "groups/:id",
+        path: "groups/:subjectId/:levelId",
+        Component: LevelView,
+      },
+
+      {
+        path: "groups/:subjectId/:levelId/:classId",
         Component: GroupDetailView,
       },
       {
         path: "students",
         Component: StudentsView,
       },
+      
       {
         path: "students/:id",
         Component: StudentDetailView,
