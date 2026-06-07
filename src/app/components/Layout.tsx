@@ -137,6 +137,7 @@ export function Layout() {
                 <p className="text-sm text-slate-500">
                   Administrateur
                 </p>
+                
               </div>
             </div>
           </div>

@@ -1,0 +1,171 @@
+import { Search } from "lucide-react";
+
+const students = [
+  {
+    id: 1,
+    nom: "Ali Hassan",
+    cc: 14,
+    ef: 15,
+    moyenne: 14.5,
+  },
+
+  {
+    id: 2,
+    nom: "Sarah Ahmed",
+    cc: 8,
+    ef: 10,
+    moyenne: 9,
+  },
+
+  {
+    id: 3,
+    nom: "Nina Martin",
+    cc: 16,
+    ef: 17,
+    moyenne: 16.5,
+  },
+];
+
+export default function ClassDetails() {
+  return (
+    <div className="space-y-6">
+
+      {/* HEADER */}
+      <div className="flex items-center justify-between">
+
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900">
+            TD 1 - Notes
+          </h1>
+
+          <p className="text-slate-500 mt-2">
+            Gestion des notes et performances du groupe
+          </p>
+        </div>
+
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-3 rounded-xl font-medium transition">
+          Importer CSV
+        </button>
+
+      </div>
+
+      {/* KPI */}
+      <div className="grid grid-cols-3 gap-6">
+
+        <div className="bg-white rounded-2xl border p-6">
+          <p className="text-slate-500 text-sm">
+            Moyenne groupe
+          </p>
+
+          <h2 className="text-3xl font-bold mt-2">
+            13.3
+          </h2>
+        </div>
+
+        <div className="bg-white rounded-2xl border p-6">
+          <p className="text-slate-500 text-sm">
+            Étudiants
+          </p>
+
+          <h2 className="text-3xl font-bold mt-2">
+            32
+          </h2>
+        </div>
+
+        <div className="bg-white rounded-2xl border p-6">
+          <p className="text-slate-500 text-sm">
+            Taux réussite
+          </p>
+
+          <h2 className="text-3xl font-bold mt-2 text-green-600">
+            87%
+          </h2>
+        </div>
+
+      </div>
+
+      {/* FILTRES */}
+      <div className="bg-white rounded-2xl border p-5 flex gap-4">
+
+        <div className="flex items-center bg-slate-100 px-4 py-3 rounded-xl w-[320px]">
+
+          <Search size={18} className="text-slate-400 mr-2" />
+
+          <input
+            type="text"
+            placeholder="Rechercher un étudiant..."
+            className="bg-transparent outline-none w-full"
+          />
+
+        </div>
+
+        <select className="border rounded-xl px-4 py-3">
+          <option>Toutes les matières</option>
+          <option>Maths</option>
+          <option>Physique</option>
+        </select>
+
+      </div>
+
+      {/* TABLEAU */}
+      <div className="bg-white rounded-2xl border overflow-hidden">
+
+        <table className="w-full">
+
+          <thead className="bg-slate-50 border-b">
+
+            <tr className="text-left text-slate-600">
+
+              <th className="p-5">Étudiant</th>
+              <th className="p-5">CC</th>
+              <th className="p-5">EF</th>
+              <th className="p-5">Moyenne</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            {students.map((student) => (
+
+              <tr
+                key={student.id}
+                className="border-b hover:bg-slate-50 transition"
+              >
+
+                <td className="p-5 font-medium">
+                  {student.nom}
+                </td>
+
+                <td className="p-5">
+                  {student.cc}
+                </td>
+
+                <td className="p-5">
+                  {student.ef}
+                </td>
+
+                <td
+                  className={`p-5 font-bold ${
+                    student.moyenne >= 10
+                      ? "text-green-600"
+                      : "text-orange-500"
+                  }`}
+                >
+                  {student.moyenne}
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+  );
+}

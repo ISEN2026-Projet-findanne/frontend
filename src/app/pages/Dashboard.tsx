@@ -39,13 +39,12 @@ export function Dashboard() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
+
           <h1 className="text-2xl font-bold text-slate-900">
             Vue d'ensemble
           </h1>
+          <p className="text-slate-500 text-sm mt-1">Vue globale de l'établissement</p>
 
-          <p className="text-slate-500 mt-1">
-            Vos indicateurs principaux de l'établissement
-          </p>
         </div>
         <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
           <Upload size={16} />
