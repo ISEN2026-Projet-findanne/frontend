@@ -19,6 +19,7 @@ export function Header() {
         <p className="text-sm text-slate-500">
           {currentDate}
         </p>
+
       </div>
 
       <div className="flex items-center gap-6">
