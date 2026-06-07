@@ -1,15 +1,16 @@
 import { Outlet, Link, useLocation } from "react-router";
-import { 
-  Home, 
-  GraduationCap, 
-  Users, 
-  BarChart3, 
-  GitCompare, 
-  AlertTriangle, 
-  FileText, 
+import {
+  Home,
+  GraduationCap,
+  Users,
+  BarChart3,
+  GitCompare,
+  AlertTriangle,
+  FileText,
   TestTube2,
   User,
-  Bell
+  Bell,
+  Search
 } from "lucide-react";
 
 const menuItems = [
@@ -63,7 +64,7 @@ export function Layout() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <header className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+        <header className="bg-white border-b border-gray-200 px-8 py-1 flex items-center justify-between">
           <div>
             <h2 className="text-2xl font-bold text-gray-800">
               Bonjour Mme Responsable 👋
@@ -78,16 +79,49 @@ export function Layout() {
             </p>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+
+            {/* Recherche */}
+            <div className="flex items-center bg-slate-100 px-4 py-3 rounded-2xl w-80">
+              <Search size={20} className="text-slate-400 mr-3" />
+
+              <input
+                type="text"
+                placeholder="Rechercher..."
+                className="bg-transparent outline-none w-full text-slate-700 placeholder:text-slate-400"
+              />
+            </div>
+
+            {/* Notification */}
             <button className="relative p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-              <Bell className="size-6" />
+              <Bell className="size-5" />
               <span className="absolute top-1 right-1 size-2 bg-orange-500 rounded-full"></span>
             </button>
+
+            {/* Séparateur */}
+            <div className="h-10 w-px bg-slate-200"></div>
+
+            {/* Profil */}
             <div className="flex items-center gap-3">
-              <div className="size-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                MR
+
+              <img
+                src="https://i.pravatar.cc/150?img=44"
+                alt="Responsable"
+                className="w-12 h-12 rounded-full object-cover"
+              />
+
+              <div>
+                <p className="font-semibold text-slate-900">
+                  Mme Responsable
+                </p>
+
+                <p className="text-sm text-slate-500">
+                  Responsable pédagogique
+                </p>
               </div>
+
             </div>
+
           </div>
         </header>
 
