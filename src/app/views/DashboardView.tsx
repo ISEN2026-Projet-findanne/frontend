@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { Users, GraduationCap, AlertTriangle, TrendingUp } from "lucide-react";
 import { 
@@ -9,12 +9,44 @@ import { Card, CardContent, CardHeader, CardTitle, Badge, cn } from "../componen
 import { MOCK_STUDENTS, MOCK_HISTOGRAM_DATA, MOCK_CURVE_DATA, MOCK_RADAR_DATA } from "../mockData";
 
 export function DashboardView() {
+  const [selectedMatiere, setSelectedMatiere] = useState("");
+  const [selectedGroupe, setSelectedGroupe] = useState("");
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-end">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Vue d'ensemble</h1>
-          <p className="text-slate-500 mt-1">Vos indicateurs principaux pour cette année</p>
+          <p className="text-slate-500 mt-1">
+            Vos indicateurs principaux pour cette année
+          </p>
+
+          <p className="text-sm text-indigo-600 mt-2">
+            Affichage : {selectedMatiere || "Toutes les matières"} • {selectedGroupe || "Tous les groupes"}
+          </p>
+        </div>
+
+        <div className="flex gap-3">
+          <select
+            value={selectedMatiere}
+            onChange={(e) => setSelectedMatiere(e.target.value)}
+            className="px-4 py-2 border border-slate-200 rounded-lg bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="">Toutes les matières</option>
+            <option value="Mathématiques">Mathématiques</option>
+            <option value="Physique">Physique</option>
+            <option value="Informatique">Informatique</option>
+          </select>
+
+          <select
+            value={selectedGroupe}
+            onChange={(e) => setSelectedGroupe(e.target.value)}
+            className="px-4 py-2 border border-slate-200 rounded-lg bg-white text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="">Tous les groupes</option>
+            <option value="L1 A">L1 A</option>
+            <option value="L1 B">L1 B</option>
+            <option value="L2 A">L2 A</option>
+          </select>
         </div>
       </div>
 

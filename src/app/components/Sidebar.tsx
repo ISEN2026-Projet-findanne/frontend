@@ -14,7 +14,7 @@ import { cn } from "./ui";
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
   { icon: Users, label: "Mes Étudiants", href: "/students" },
-  { icon: Users, label: "Mes Groupes", href: "/groups" },
+  { icon: Users, label: "Mes Matières", href: "/groups" },
   { icon: PenLine, label: "Saisie des Notes", href: "/grades" },
   { icon: BarChart3, label: "Analytics / KPI", href: "/analytics" },
   { icon: AlertTriangle, label: "Alertes", href: "/alerts" },
