@@ -7,6 +7,7 @@ import { StudentProfile } from "./pages/StudentProfile";
 import { Analytics } from "./pages/Analytics";
 import { Promotions } from "./pages/Promotions";
 import { Classes } from "./pages/Classes";
+import { AdminProfileView } from "./pages/AdminProfileView";
 
 
 import Subjects from "./pages/Subjects";
@@ -79,6 +80,11 @@ export const router = createBrowserRouter([
       {
         path: "alerts",
         Component: Alerts,
+      },
+      
+      {
+        path: "profile",
+        Component: AdminProfileView,
       },
 
       {

@@ -1,17 +1,18 @@
 import { Outlet, NavLink } from "react-router";
-import { 
-  LayoutDashboard, 
-  Users, 
-  GraduationCap, 
-  Building2, 
-  BookOpen, 
-  UserSquare2, 
-  PenTool, 
-  BarChart3, 
-  Bell, 
+import {
+  LayoutDashboard,
+  Users,
+  GraduationCap,
+  Building2,
+  BookOpen,
+  UserSquare2,
+  PenTool,
+  BarChart3,
+  Bell,
   Settings,
   Search,
-  Menu
+  Menu,
+  User
 } from "lucide-react";
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ const NAV_ITEMS = [
   { label: "Responsables", path: "/responsables", icon:Users },
   { label: "Analytics", path: "/analytics", icon: BarChart3 },
   { label: "Alertes", path: "/alerts", icon: Bell },
+  { label: "Profil", path: "/profile", icon: User },
   { label: "Paramètres", path: "/settings", icon: Settings },
   
 
@@ -93,53 +95,61 @@ export function Layout() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Header */}
-        <header className="h-24 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-6 z-10 shrink-0">
-          <div className="flex items-center gap-6">
-            <button
-              className="lg:hidden p-2 -ml-2 text-slate-500 hover:text-slate-700 rounded-lg hover:bg-slate-100"
-              onClick={() => setSidebarOpen(true)}
-            >
-              <Menu size={20} />
-            </button>
+        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 z-10 shrink-0">
 
-            <div>
-              <h1 className="text-2xl font-bold text-slate-900">
-                Bonjour Mme Admin 👋
-              </h1>
+          {/* Partie gauche */}
+          <div>
+            <h2 className="text-xl font-semibold text-slate-800">
+              Bonjour Mme Admin 👋
+            </h2>
 
-              <p className="text-slate-500 text-sm">
-                {currentDate}
-              </p>
-            </div>
+            <p className="text-sm text-slate-500">
+              {currentDate}
+            </p>
           </div>
-          
 
+          {/* Partie droite */}
           <div className="flex items-center gap-6">
+
+            {/* Recherche */}
+            <div className="relative hidden md:block">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+
+              <input
+                type="text"
+                placeholder="Rechercher..."
+                className="pl-9 pr-4 py-2 bg-slate-100 border-transparent rounded-full text-sm focus:bg-white focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all outline-none w-64"
+              />
+            </div>
+
+            {/* Notification */}
             <button className="relative p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition-colors">
               <Bell size={20} />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-orange-500 rounded-full border-2 border-white"></span>
             </button>
 
+            {/* Séparateur */}
             <div className="h-10 w-px bg-slate-200"></div>
 
+            {/* Profil */}
             <div className="flex items-center gap-3">
               <img
                 src="https://i.pravatar.cc/150?img=32"
                 alt="Admin"
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-9 h-9 rounded-full object-cover border-2 border-indigo-100"
               />
 
-              <div>
-                <p className="font-semibold text-slate-900">
+              <div className="hidden md:block text-sm">
+                <p className="font-medium text-slate-700">
                   Mme Admin
                 </p>
 
-                <p className="text-sm text-slate-500">
+                <p className="text-slate-500 text-xs">
                   Administrateur
                 </p>
-                
               </div>
             </div>
+
           </div>
         </header>
 
